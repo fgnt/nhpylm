@@ -1,0 +1,13 @@
+.idea/
+build/
+nhpylm.egg-info/
+nhpylm/c_core/NHPYLM/build/
+nhpylm/c_core/__pycache__/
+tests/__pycache__/
+nhpylm/c_core/nhpylm.cpp
+nhpylm/c_core/nhpylm.cpython-*.so
+nhpylm/c_core/nhpylm.html
+examples/.ipynb_checkpoints/
+examples/lattice_playground/
+nhpylm/__pycache__/
+
