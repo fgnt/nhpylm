@@ -1,0 +1,77 @@
+##########
+# nhpylm #
+##########
+
+python bindings for a c++ based implementation of the Nested Hierarchical Pitman-Yor Language model
+
+
+###########
+# Contact #
+###########
+
+In case of questions, suggestions, problems etc. please send an email or check the disussion group.
+
+Oliver Walter:
+walter@nt.uni-paderborn.de
+
+Jahn Heymann:
+heymann@nt.uni-paderborn.de
+
+Discussion group:
+email: latticewordsegmentation@googlegroups.com
+google groups: https://groups.google.com/d/forum/latticewordsegmentation
+
+
+##############
+# References #
+##############
+
+Teh, Yee Whye. "A hierarchical Bayesian language model based on Pitman-Yor processes."
+Proceedings of the 21st International Conference on Computational Linguistics
+and the 44th annual meeting of the Association for Computational Linguistics.
+Association for Computational Linguistics, 2006.
+
+
+Mochihashi, Daichi, Takeshi Yamada, and Naonori Ueda. "Bayesian unsupervised word segmentation
+with nested Pitman-Yor language modeling."
+Proceedings of the Joint Conference of the 47th Annual Meeting of the ACL
+and the 4th International Joint Conference on Natural Language Processing of the AFNLP:
+Volume 1-Volume 1. Association for Computational Linguistics, 2009.
+
+
+###############
+# Instalation #
+###############
+
+git clone [...] nhpylm
+cd nhpylm
+pip install --user -e .
+
+
+################
+# Requirements #
+################
+
+kaldi: to run the examples, the openfst command line tools installed by kaldi will be needed.
+Prior to running the examples, set the environment varaible KALDI_ROOT to point to you kaldi installation.
+(see nhpylm/kaldi.py)
+
+
+############
+# Examples #
+############
+
+Example output can be found in examples/lattice_playground
+All possible segmentations of an example sentence: examples/lattice_playground/wcl-l-e-p/I_loop_L.fst.pdf
+
+Example using PHI compositions: examples/Word_Char_Lexicon-LM-Example-Phi.ipynb
+Example using PHI compositions and acoustig model: examples/Word_Char_Lexicon-LM-Example-Phi-Monophone.ipynb
+Example using EPS fallback (standard decoding chain): examples/Word_Char_Lexicon-LM-Example.ipynb
+
+PHI composition with example from WSJ database: examples/Word_Char_Lexicon-LM-WSJCAM0-Phi.ipynb
+EPS fallback with example from WSJ database: examples/Word_Char_Lexicon-LM-WSJCAM0.ipynb
+Decoding of test sentences with both, PHI composition and EPS fallback: examples/Word_Char_Lexicon-LM-WSJCAM0-Decode.ipynb
+
+Create (L o G) for WSJCAM0 training data: examples/WSJCAM0_HPYLM.ipynb
+Create (L o G) for WSJ LM training data: examples/WSJ_HPYLM.ipynb
+

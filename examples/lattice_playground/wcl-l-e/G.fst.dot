@@ -1,0 +1,430 @@
+digraph FST {
+rankdir = LR;
+size = "22,17";
+label = "";
+center = 1;
+orientation = Portrait;
+ranksep = "0.4";
+nodesep = "0.25";
+0 [label = "0", shape = circle, style = bold, fontsize = 14]
+	0 -> 3 [label = "_PHI:_PHI/0.050572", fontsize = 14];
+	0 -> 1 [label = "Martian:Martian/2.3909", fontsize = 14];
+	0 -> 2 [label = "man:man/2.0931", fontsize = 14];
+1 [label = "1", shape = circle, style = solid, fontsize = 14]
+	1 -> 3 [label = "_PHI:_PHI/0.03008", fontsize = 14];
+	1 -> 121 [label = "Marsman:Marsman/2.2659", fontsize = 14];
+2 [label = "2", shape = circle, style = solid, fontsize = 14]
+	2 -> 3 [label = "_PHI:_PHI/0.03008", fontsize = 14];
+	2 -> 122 [label = "on:on/1.9855", fontsize = 14];
+3 [label = "3", shape = circle, style = solid, fontsize = 14]
+	3 -> 120 [label = "_EPS:_EPS/1.4896", fontsize = 14];
+	3 -> 45 [label = "_EPS:_EPS/0.32615", fontsize = 14];
+	3 -> 1 [label = "Martian:Martian/2.6541", fontsize = 14];
+	3 -> 121 [label = "Marsman:Marsman/2.5722", fontsize = 14];
+	3 -> 2 [label = "man:man/2.2657", fontsize = 14];
+	3 -> 122 [label = "on:on/2.1985", fontsize = 14];
+	3 -> 123 [label = "Mars:Mars/2.2763", fontsize = 14];
+4 [label = "4", shape = circle, style = solid, fontsize = 14]
+	4 -> 5 [label = "_EOS:_EOS/2.8186", fontsize = 14];
+	4 -> 3 [label = "_EOC:_EOC/2.0408", fontsize = 14];
+	4 -> 6 [label = "_i:_i/2.8186", fontsize = 14];
+	4 -> 7 [label = "_n:_n/1.8254", fontsize = 14];
+	4 -> 8 [label = "_o:_o/2.8186", fontsize = 14];
+	4 -> 9 [label = "_s:_s/2.8186", fontsize = 14];
+	4 -> 10 [label = "_t:_t/2.8186", fontsize = 14];
+	4 -> 11 [label = "_r:_r/2.8186", fontsize = 14];
+	4 -> 12 [label = "_m:_m/2.5358", fontsize = 14];
+	4 -> 13 [label = "_M:_M/2.8186", fontsize = 14];
+	4 -> 14 [label = "_a:_a/1.5518", fontsize = 14];
+5 [label = "5", shape = circle, style = solid, fontsize = 14]
+	5 -> 4 [label = "_PHI:_PHI/0.21603", fontsize = 14];
+	5 -> 3 [label = "_EOC:_EOC/1.2074", fontsize = 14];
+6 [label = "6", shape = circle, style = solid, fontsize = 14]
+	6 -> 4 [label = "_PHI:_PHI/0.21603", fontsize = 14];
+	6 -> 77 [label = "_a:_a/1.0079", fontsize = 14];
+7 [label = "7", shape = circle, style = solid, fontsize = 14]
+	7 -> 4 [label = "_PHI:_PHI/0.94259", fontsize = 14];
+	7 -> 3 [label = "_EOC:_EOC/0.41399", fontsize = 14];
+8 [label = "8", shape = circle, style = solid, fontsize = 14]
+	8 -> 4 [label = "_PHI:_PHI/0.21603", fontsize = 14];
+	8 -> 114 [label = "_n:_n/1.1266", fontsize = 14];
+9 [label = "9", shape = circle, style = solid, fontsize = 14]
+	9 -> 4 [label = "_PHI:_PHI/0.29211", fontsize = 14];
+	9 -> 3 [label = "_EOC:_EOC/1.4976", fontsize = 14];
+	9 -> 88 [label = "_m:_m/1.6831", fontsize = 14];
+10 [label = "10", shape = circle, style = solid, fontsize = 14]
+	10 -> 4 [label = "_PHI:_PHI/0.21603", fontsize = 14];
+	10 -> 71 [label = "_i:_i/1.4172", fontsize = 14];
+11 [label = "11", shape = circle, style = solid, fontsize = 14]
+	11 -> 4 [label = "_PHI:_PHI/0.29211", fontsize = 14];
+	11 -> 59 [label = "_s:_s/1.7648", fontsize = 14];
+	11 -> 60 [label = "_t:_t/1.7648", fontsize = 14];
+12 [label = "12", shape = circle, style = solid, fontsize = 14]
+	12 -> 4 [label = "_PHI:_PHI/0.29211", fontsize = 14];
+	12 -> 94 [label = "_a:_a/0.8879", fontsize = 14];
+13 [label = "13", shape = circle, style = solid, fontsize = 14]
+	13 -> 4 [label = "_PHI:_PHI/0.21603", fontsize = 14];
+	13 -> 46 [label = "_a:_a/1.0079", fontsize = 14];
+14 [label = "14", shape = circle, style = solid, fontsize = 14]
+	14 -> 4 [label = "_PHI:_PHI/0.56078", fontsize = 14];
+	14 -> 52 [label = "_n:_n/0.80622", fontsize = 14];
+	14 -> 53 [label = "_r:_r/2.2188", fontsize = 14];
+15 [label = "15", shape = circle, style = solid, fontsize = 14]
+	15 -> 4 [label = "_PHI:_PHI/0.3548", fontsize = 14];
+	15 -> 16 [label = "_EOS:_EOS/2.1496", fontsize = 14];
+	15 -> 17 [label = "_o:_o/2.1496", fontsize = 14];
+	15 -> 18 [label = "_m:_m/2.0386", fontsize = 14];
+	15 -> 19 [label = "_M:_M/2.1496", fontsize = 14];
+16 [label = "16", shape = circle, style = solid, fontsize = 14]
+	16 -> 5 [label = "_PHI:_PHI/0.16599", fontsize = 14];
+	16 -> 3 [label = "_EOC:_EOC/0.90092", fontsize = 14];
+17 [label = "17", shape = circle, style = solid, fontsize = 14]
+	17 -> 8 [label = "_PHI:_PHI/0.16599", fontsize = 14];
+	17 -> 115 [label = "_n:_n/0.8498", fontsize = 14];
+18 [label = "18", shape = circle, style = solid, fontsize = 14]
+	18 -> 12 [label = "_PHI:_PHI/0.16599", fontsize = 14];
+	18 -> 105 [label = "_a:_a/0.6901", fontsize = 14];
+19 [label = "19", shape = circle, style = solid, fontsize = 14]
+	19 -> 13 [label = "_PHI:_PHI/0.16599", fontsize = 14];
+	19 -> 47 [label = "_a:_a/0.77193", fontsize = 14];
+20 [label = "20", shape = circle, style = solid, fontsize = 14]
+	20 -> 15 [label = "_PHI:_PHI/0.2048", fontsize = 14];
+	20 -> 21 [label = "_EOS:_EOS/1.9572", fontsize = 14];
+	20 -> 22 [label = "_o:_o/1.9572", fontsize = 14];
+	20 -> 23 [label = "_m:_m/1.8813", fontsize = 14];
+	20 -> 24 [label = "_M:_M/1.9572", fontsize = 14];
+21 [label = "21", shape = circle, style = solid, fontsize = 14]
+	21 -> 16 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	21 -> 3 [label = "_EOC:_EOC/0.76197", fontsize = 14];
+22 [label = "22", shape = circle, style = solid, fontsize = 14]
+	22 -> 17 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	22 -> 116 [label = "_n:_n/0.72179", fontsize = 14];
+23 [label = "23", shape = circle, style = solid, fontsize = 14]
+	23 -> 18 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	23 -> 106 [label = "_a:_a/0.59356", fontsize = 14];
+24 [label = "24", shape = circle, style = solid, fontsize = 14]
+	24 -> 19 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	24 -> 48 [label = "_a:_a/0.65977", fontsize = 14];
+25 [label = "25", shape = circle, style = solid, fontsize = 14]
+	25 -> 20 [label = "_PHI:_PHI/0.18031", fontsize = 14];
+	25 -> 26 [label = "_EOS:_EOS/1.8376", fontsize = 14];
+	25 -> 27 [label = "_o:_o/1.8376", fontsize = 14];
+	25 -> 28 [label = "_m:_m/1.7808", fontsize = 14];
+	25 -> 29 [label = "_M:_M/1.8376", fontsize = 14];
+26 [label = "26", shape = circle, style = solid, fontsize = 14]
+	26 -> 21 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	26 -> 3 [label = "_EOC:_EOC/0.60703", fontsize = 14];
+27 [label = "27", shape = circle, style = solid, fontsize = 14]
+	27 -> 22 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	27 -> 117 [label = "_n:_n/0.57751", fontsize = 14];
+28 [label = "28", shape = circle, style = solid, fontsize = 14]
+	28 -> 23 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	28 -> 107 [label = "_a:_a/0.48123", fontsize = 14];
+29 [label = "29", shape = circle, style = solid, fontsize = 14]
+	29 -> 24 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	29 -> 49 [label = "_a:_a/0.53132", fontsize = 14];
+30 [label = "30", shape = circle, style = solid, fontsize = 14]
+	30 -> 25 [label = "_PHI:_PHI/0.17575", fontsize = 14];
+	30 -> 31 [label = "_EOS:_EOS/1.7497", fontsize = 14];
+	30 -> 32 [label = "_o:_o/1.7497", fontsize = 14];
+	30 -> 33 [label = "_m:_m/1.7057", fontsize = 14];
+	30 -> 34 [label = "_M:_M/1.7497", fontsize = 14];
+31 [label = "31", shape = circle, style = solid, fontsize = 14]
+	31 -> 26 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	31 -> 3 [label = "_EOC:_EOC/0.49183", fontsize = 14];
+32 [label = "32", shape = circle, style = solid, fontsize = 14]
+	32 -> 27 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	32 -> 118 [label = "_n:_n/0.46929", fontsize = 14];
+33 [label = "33", shape = circle, style = solid, fontsize = 14]
+	33 -> 28 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	33 -> 108 [label = "_a:_a/0.39471", fontsize = 14];
+34 [label = "34", shape = circle, style = solid, fontsize = 14]
+	34 -> 29 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	34 -> 50 [label = "_a:_a/0.43372", fontsize = 14];
+35 [label = "35", shape = circle, style = solid, fontsize = 14]
+	35 -> 30 [label = "_PHI:_PHI/0.26024", fontsize = 14];
+	35 -> 36 [label = "_EOS:_EOS/1.654", fontsize = 14];
+	35 -> 37 [label = "_o:_o/1.654", fontsize = 14];
+	35 -> 38 [label = "_m:_m/1.623", fontsize = 14];
+	35 -> 39 [label = "_M:_M/1.654", fontsize = 14];
+36 [label = "36", shape = circle, style = solid, fontsize = 14]
+	36 -> 31 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	36 -> 3 [label = "_EOC:_EOC/0.41937", fontsize = 14];
+37 [label = "37", shape = circle, style = solid, fontsize = 14]
+	37 -> 32 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	37 -> 119 [label = "_n:_n/0.40085", fontsize = 14];
+38 [label = "38", shape = circle, style = solid, fontsize = 14]
+	38 -> 33 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	38 -> 109 [label = "_a:_a/0.33904", fontsize = 14];
+39 [label = "39", shape = circle, style = solid, fontsize = 14]
+	39 -> 34 [label = "_PHI:_PHI/0.83252", fontsize = 14];
+	39 -> 51 [label = "_a:_a/0.16613", fontsize = 14];
+40 [label = "40", shape = circle, style = solid, fontsize = 14]
+	40 -> 35 [label = "_PHI:_PHI/0.20606", fontsize = 14];
+	40 -> 41 [label = "_EOS:_EOS/1.5984", fontsize = 14];
+	40 -> 42 [label = "_o:_o/1.5984", fontsize = 14];
+	40 -> 43 [label = "_m:_m/1.5745", fontsize = 14];
+	40 -> 44 [label = "_M:_M/1.5984", fontsize = 14];
+41 [label = "41", shape = circle, style = solid, fontsize = 14]
+	41 -> 36 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	41 -> 3 [label = "_EOC:_EOC/0.22531", fontsize = 14];
+42 [label = "42", shape = circle, style = solid, fontsize = 14]
+	42 -> 37 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	42 -> 119 [label = "_n:_n/0.21628", fontsize = 14];
+43 [label = "43", shape = circle, style = solid, fontsize = 14]
+	43 -> 38 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	43 -> 109 [label = "_a:_a/0.18554", fontsize = 14];
+44 [label = "44", shape = circle, style = solid, fontsize = 14]
+	44 -> 39 [label = "_PHI:_PHI/0.72453", fontsize = 14];
+	44 -> 51 [label = "_a:_a/0.077061", fontsize = 14];
+45 [label = "45", shape = circle, style = solid, fontsize = 14]
+	45 -> 40 [label = "_PHI:_PHI/1.1322", fontsize = 14];
+	45 -> 41 [label = "_EOS:_EOS/1.8521", fontsize = 14];
+	45 -> 42 [label = "_o:_o/1.8521", fontsize = 14];
+	45 -> 43 [label = "_m:_m/1.8421", fontsize = 14];
+	45 -> 44 [label = "_M:_M/0.76003", fontsize = 14];
+46 [label = "46", shape = circle, style = solid, fontsize = 14]
+	46 -> 14 [label = "_PHI:_PHI/0.16599", fontsize = 14];
+	46 -> 54 [label = "_r:_r/1.4063", fontsize = 14];
+47 [label = "47", shape = circle, style = solid, fontsize = 14]
+	47 -> 46 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	47 -> 55 [label = "_r:_r/1.1331", fontsize = 14];
+48 [label = "48", shape = circle, style = solid, fontsize = 14]
+	48 -> 47 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	48 -> 56 [label = "_r:_r/0.86396", fontsize = 14];
+49 [label = "49", shape = circle, style = solid, fontsize = 14]
+	49 -> 48 [label = "_PHI:_PHI/0.57519", fontsize = 14];
+	49 -> 57 [label = "_r:_r/0.39374", fontsize = 14];
+50 [label = "50", shape = circle, style = solid, fontsize = 14]
+	50 -> 49 [label = "_PHI:_PHI/0.16995", fontsize = 14];
+	50 -> 58 [label = "_r:_r/0.32103", fontsize = 14];
+51 [label = "51", shape = circle, style = solid, fontsize = 14]
+	51 -> 50 [label = "_PHI:_PHI/1.0069", fontsize = 14];
+	51 -> 58 [label = "_r:_r/0.10572", fontsize = 14];
+52 [label = "52", shape = circle, style = solid, fontsize = 14]
+	52 -> 7 [label = "_PHI:_PHI/0.18999", fontsize = 14];
+	52 -> 3 [label = "_EOC:_EOC/0.32897", fontsize = 14];
+53 [label = "53", shape = circle, style = solid, fontsize = 14]
+	53 -> 11 [label = "_PHI:_PHI/0.18999", fontsize = 14];
+	53 -> 61 [label = "_s:_s/1.4779", fontsize = 14];
+	53 -> 62 [label = "_t:_t/1.4779", fontsize = 14];
+54 [label = "54", shape = circle, style = solid, fontsize = 14]
+	54 -> 53 [label = "_PHI:_PHI/0.14712", fontsize = 14];
+	54 -> 63 [label = "_s:_s/1.3268", fontsize = 14];
+	54 -> 64 [label = "_t:_t/1.3268", fontsize = 14];
+55 [label = "55", shape = circle, style = solid, fontsize = 14]
+	55 -> 54 [label = "_PHI:_PHI/0.16964", fontsize = 14];
+	55 -> 65 [label = "_s:_s/1.1976", fontsize = 14];
+	55 -> 66 [label = "_t:_t/1.1976", fontsize = 14];
+56 [label = "56", shape = circle, style = solid, fontsize = 14]
+	56 -> 55 [label = "_PHI:_PHI/0.21407", fontsize = 14];
+	56 -> 67 [label = "_s:_s/1.0785", fontsize = 14];
+	56 -> 68 [label = "_t:_t/1.0785", fontsize = 14];
+57 [label = "57", shape = circle, style = solid, fontsize = 14]
+	57 -> 56 [label = "_PHI:_PHI/0.16995", fontsize = 14];
+	57 -> 69 [label = "_s:_s/1.0076", fontsize = 14];
+	57 -> 70 [label = "_t:_t/1.0076", fontsize = 14];
+58 [label = "58", shape = circle, style = solid, fontsize = 14]
+	58 -> 57 [label = "_PHI:_PHI/1.0069", fontsize = 14];
+	58 -> 69 [label = "_s:_s/0.51715", fontsize = 14];
+	58 -> 70 [label = "_t:_t/1.1868", fontsize = 14];
+59 [label = "59", shape = circle, style = solid, fontsize = 14]
+	59 -> 9 [label = "_PHI:_PHI/0.18999", fontsize = 14];
+	59 -> 3 [label = "_EOC:_EOC/1.3038", fontsize = 14];
+	59 -> 89 [label = "_m:_m/1.4264", fontsize = 14];
+60 [label = "60", shape = circle, style = solid, fontsize = 14]
+	60 -> 10 [label = "_PHI:_PHI/0.16599", fontsize = 14];
+	60 -> 72 [label = "_i:_i/1.0265", fontsize = 14];
+61 [label = "61", shape = circle, style = solid, fontsize = 14]
+	61 -> 59 [label = "_PHI:_PHI/0.14712", fontsize = 14];
+	61 -> 3 [label = "_EOC:_EOC/1.1949", fontsize = 14];
+	61 -> 90 [label = "_m:_m/1.2884", fontsize = 14];
+62 [label = "62", shape = circle, style = solid, fontsize = 14]
+	62 -> 60 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	62 -> 73 [label = "_i:_i/0.85873", fontsize = 14];
+63 [label = "63", shape = circle, style = solid, fontsize = 14]
+	63 -> 61 [label = "_PHI:_PHI/0.16964", fontsize = 14];
+	63 -> 3 [label = "_EOC:_EOC/1.098", fontsize = 14];
+	63 -> 91 [label = "_m:_m/1.1689", fontsize = 14];
+64 [label = "64", shape = circle, style = solid, fontsize = 14]
+	64 -> 62 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	64 -> 74 [label = "_i:_i/0.67681", fontsize = 14];
+65 [label = "65", shape = circle, style = solid, fontsize = 14]
+	65 -> 63 [label = "_PHI:_PHI/0.21407", fontsize = 14];
+	65 -> 3 [label = "_EOC:_EOC/1.0062", fontsize = 14];
+	65 -> 92 [label = "_m:_m/1.0579", fontsize = 14];
+66 [label = "66", shape = circle, style = solid, fontsize = 14]
+	66 -> 64 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	66 -> 75 [label = "_i:_i/0.54448", fontsize = 14];
+67 [label = "67", shape = circle, style = solid, fontsize = 14]
+	67 -> 65 [label = "_PHI:_PHI/0.16995", fontsize = 14];
+	67 -> 3 [label = "_EOC:_EOC/0.95033", fontsize = 14];
+	67 -> 93 [label = "_m:_m/0.99136", fontsize = 14];
+68 [label = "68", shape = circle, style = solid, fontsize = 14]
+	68 -> 66 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	68 -> 76 [label = "_i:_i/0.46234", fontsize = 14];
+69 [label = "69", shape = circle, style = solid, fontsize = 14]
+	69 -> 67 [label = "_PHI:_PHI/0.66297", fontsize = 14];
+	69 -> 3 [label = "_EOC:_EOC/0.81742", fontsize = 14];
+	69 -> 93 [label = "_m:_m/0.83573", fontsize = 14];
+70 [label = "70", shape = circle, style = solid, fontsize = 14]
+	70 -> 68 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	70 -> 76 [label = "_i:_i/0.24592", fontsize = 14];
+71 [label = "71", shape = circle, style = solid, fontsize = 14]
+	71 -> 6 [label = "_PHI:_PHI/0.16599", fontsize = 14];
+	71 -> 78 [label = "_a:_a/0.77193", fontsize = 14];
+72 [label = "72", shape = circle, style = solid, fontsize = 14]
+	72 -> 71 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	72 -> 79 [label = "_a:_a/0.65977", fontsize = 14];
+73 [label = "73", shape = circle, style = solid, fontsize = 14]
+	73 -> 72 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	73 -> 80 [label = "_a:_a/0.53132", fontsize = 14];
+74 [label = "74", shape = circle, style = solid, fontsize = 14]
+	74 -> 73 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	74 -> 81 [label = "_a:_a/0.43372", fontsize = 14];
+75 [label = "75", shape = circle, style = solid, fontsize = 14]
+	75 -> 74 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	75 -> 82 [label = "_a:_a/0.37147", fontsize = 14];
+76 [label = "76", shape = circle, style = solid, fontsize = 14]
+	76 -> 75 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	76 -> 82 [label = "_a:_a/0.20179", fontsize = 14];
+77 [label = "77", shape = circle, style = solid, fontsize = 14]
+	77 -> 14 [label = "_PHI:_PHI/0.16599", fontsize = 14];
+	77 -> 83 [label = "_n:_n/0.63263", fontsize = 14];
+78 [label = "78", shape = circle, style = solid, fontsize = 14]
+	78 -> 77 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	78 -> 84 [label = "_n:_n/0.54645", fontsize = 14];
+79 [label = "79", shape = circle, style = solid, fontsize = 14]
+	79 -> 78 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	79 -> 85 [label = "_n:_n/0.44511", fontsize = 14];
+80 [label = "80", shape = circle, style = solid, fontsize = 14]
+	80 -> 79 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	80 -> 86 [label = "_n:_n/0.36631", fontsize = 14];
+81 [label = "81", shape = circle, style = solid, fontsize = 14]
+	81 -> 80 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	81 -> 87 [label = "_n:_n/0.31531", fontsize = 14];
+82 [label = "82", shape = circle, style = solid, fontsize = 14]
+	82 -> 81 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	82 -> 87 [label = "_n:_n/0.17348", fontsize = 14];
+83 [label = "83", shape = circle, style = solid, fontsize = 14]
+	83 -> 52 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	83 -> 3 [label = "_EOC:_EOC/0.29002", fontsize = 14];
+84 [label = "84", shape = circle, style = solid, fontsize = 14]
+	84 -> 83 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	84 -> 3 [label = "_EOC:_EOC/0.24184", fontsize = 14];
+85 [label = "85", shape = circle, style = solid, fontsize = 14]
+	85 -> 84 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	85 -> 3 [label = "_EOC:_EOC/0.20262", fontsize = 14];
+86 [label = "86", shape = circle, style = solid, fontsize = 14]
+	86 -> 85 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	86 -> 3 [label = "_EOC:_EOC/0.1764", fontsize = 14];
+87 [label = "87", shape = circle, style = solid, fontsize = 14]
+	87 -> 86 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	87 -> 3 [label = "_EOC:_EOC/0.10008", fontsize = 14];
+88 [label = "88", shape = circle, style = solid, fontsize = 14]
+	88 -> 12 [label = "_PHI:_PHI/0.16599", fontsize = 14];
+	88 -> 95 [label = "_a:_a/0.6901", fontsize = 14];
+89 [label = "89", shape = circle, style = solid, fontsize = 14]
+	89 -> 88 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	89 -> 96 [label = "_a:_a/0.59356", fontsize = 14];
+90 [label = "90", shape = circle, style = solid, fontsize = 14]
+	90 -> 89 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	90 -> 97 [label = "_a:_a/0.48123", fontsize = 14];
+91 [label = "91", shape = circle, style = solid, fontsize = 14]
+	91 -> 90 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	91 -> 98 [label = "_a:_a/0.39471", fontsize = 14];
+92 [label = "92", shape = circle, style = solid, fontsize = 14]
+	92 -> 91 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	92 -> 99 [label = "_a:_a/0.33904", fontsize = 14];
+93 [label = "93", shape = circle, style = solid, fontsize = 14]
+	93 -> 92 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	93 -> 99 [label = "_a:_a/0.18554", fontsize = 14];
+94 [label = "94", shape = circle, style = solid, fontsize = 14]
+	94 -> 14 [label = "_PHI:_PHI/0.18999", fontsize = 14];
+	94 -> 100 [label = "_n:_n/0.61192", fontsize = 14];
+95 [label = "95", shape = circle, style = solid, fontsize = 14]
+	95 -> 94 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	95 -> 101 [label = "_n:_n/0.52936", fontsize = 14];
+96 [label = "96", shape = circle, style = solid, fontsize = 14]
+	96 -> 95 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	96 -> 102 [label = "_n:_n/0.4319", fontsize = 14];
+97 [label = "97", shape = circle, style = solid, fontsize = 14]
+	97 -> 96 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	97 -> 103 [label = "_n:_n/0.35588", fontsize = 14];
+98 [label = "98", shape = circle, style = solid, fontsize = 14]
+	98 -> 97 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	98 -> 104 [label = "_n:_n/0.30656", fontsize = 14];
+99 [label = "99", shape = circle, style = solid, fontsize = 14]
+	99 -> 98 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	99 -> 104 [label = "_n:_n/0.169", fontsize = 14];
+100 [label = "100", shape = circle, style = solid, fontsize = 14]
+	100 -> 52 [label = "_PHI:_PHI/0.50685", fontsize = 14];
+	100 -> 3 [label = "_EOC:_EOC/0.18497", fontsize = 14];
+101 [label = "101", shape = circle, style = solid, fontsize = 14]
+	101 -> 100 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	101 -> 3 [label = "_EOC:_EOC/0.1556", fontsize = 14];
+102 [label = "102", shape = circle, style = solid, fontsize = 14]
+	102 -> 101 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	102 -> 3 [label = "_EOC:_EOC/0.13128", fontsize = 14];
+103 [label = "103", shape = circle, style = solid, fontsize = 14]
+	103 -> 102 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	103 -> 3 [label = "_EOC:_EOC/0.11482", fontsize = 14];
+104 [label = "104", shape = circle, style = solid, fontsize = 14]
+	104 -> 103 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	104 -> 3 [label = "_EOC:_EOC/0.066017", fontsize = 14];
+105 [label = "105", shape = circle, style = solid, fontsize = 14]
+	105 -> 94 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	105 -> 110 [label = "_n:_n/0.52936", fontsize = 14];
+106 [label = "106", shape = circle, style = solid, fontsize = 14]
+	106 -> 105 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	106 -> 111 [label = "_n:_n/0.4319", fontsize = 14];
+107 [label = "107", shape = circle, style = solid, fontsize = 14]
+	107 -> 106 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	107 -> 112 [label = "_n:_n/0.35588", fontsize = 14];
+108 [label = "108", shape = circle, style = solid, fontsize = 14]
+	108 -> 107 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	108 -> 113 [label = "_n:_n/0.30656", fontsize = 14];
+109 [label = "109", shape = circle, style = solid, fontsize = 14]
+	109 -> 108 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	109 -> 113 [label = "_n:_n/0.169", fontsize = 14];
+110 [label = "110", shape = circle, style = solid, fontsize = 14]
+	110 -> 100 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	110 -> 3 [label = "_EOC:_EOC/0.1556", fontsize = 14];
+111 [label = "111", shape = circle, style = solid, fontsize = 14]
+	111 -> 110 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	111 -> 3 [label = "_EOC:_EOC/0.13128", fontsize = 14];
+112 [label = "112", shape = circle, style = solid, fontsize = 14]
+	112 -> 111 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	112 -> 3 [label = "_EOC:_EOC/0.11482", fontsize = 14];
+113 [label = "113", shape = circle, style = solid, fontsize = 14]
+	113 -> 112 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	113 -> 3 [label = "_EOC:_EOC/0.066017", fontsize = 14];
+114 [label = "114", shape = circle, style = solid, fontsize = 14]
+	114 -> 7 [label = "_PHI:_PHI/0.16599", fontsize = 14];
+	114 -> 3 [label = "_EOC:_EOC/0.33848", fontsize = 14];
+115 [label = "115", shape = circle, style = solid, fontsize = 14]
+	115 -> 114 [label = "_PHI:_PHI/0.10756", fontsize = 14];
+	115 -> 3 [label = "_EOC:_EOC/0.29822", fontsize = 14];
+116 [label = "116", shape = circle, style = solid, fontsize = 14]
+	116 -> 115 [label = "_PHI:_PHI/0.15863", fontsize = 14];
+	116 -> 3 [label = "_EOC:_EOC/0.24851", fontsize = 14];
+117 [label = "117", shape = circle, style = solid, fontsize = 14]
+	117 -> 116 [label = "_PHI:_PHI/0.15809", fontsize = 14];
+	117 -> 3 [label = "_EOC:_EOC/0.20809", fontsize = 14];
+118 [label = "118", shape = circle, style = solid, fontsize = 14]
+	118 -> 117 [label = "_PHI:_PHI/0.12588", fontsize = 14];
+	118 -> 3 [label = "_EOC:_EOC/0.18109", fontsize = 14];
+119 [label = "119", shape = circle, style = solid, fontsize = 14]
+	119 -> 118 [label = "_PHI:_PHI/0.52945", fontsize = 14];
+	119 -> 3 [label = "_EOC:_EOC/0.10264", fontsize = 14];
+120 [label = "120", shape = doublecircle, style = solid, fontsize = 14]
+121 [label = "121", shape = circle, style = solid, fontsize = 14]
+	121 -> 120 [label = "_EPS:_EPS/1.3927", fontsize = 14];
+	121 -> 3 [label = "_PHI:_PHI/0.03008", fontsize = 14];
+122 [label = "122", shape = circle, style = solid, fontsize = 14]
+	122 -> 3 [label = "_PHI:_PHI/0.03008", fontsize = 14];
+	122 -> 123 [label = "Mars:Mars/2.046", fontsize = 14];
+123 [label = "123", shape = circle, style = solid, fontsize = 14]
+	123 -> 120 [label = "_EPS:_EPS/1.3927", fontsize = 14];
+	123 -> 3 [label = "_PHI:_PHI/0.03008", fontsize = 14];
+}

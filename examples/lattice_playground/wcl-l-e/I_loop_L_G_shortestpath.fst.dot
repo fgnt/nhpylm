@@ -1,0 +1,14 @@
+digraph FST {
+rankdir = LR;
+size = "22,17";
+label = "";
+center = 1;
+orientation = Portrait;
+ranksep = "0.4";
+nodesep = "0.25";
+2 [label = "2", shape = circle, style = bold, fontsize = 14]
+	2 -> 1 [label = "Martian:Martian/2.3909", fontsize = 14];
+0 [label = "0/1.3927", shape = doublecircle, style = solid, fontsize = 14]
+1 [label = "1", shape = circle, style = solid, fontsize = 14]
+	1 -> 0 [label = "Marsman:Marsman/2.2659", fontsize = 14];
+}

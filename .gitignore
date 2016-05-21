@@ -8,6 +8,11 @@ nhpylm/c_core/nhpylm.cpp
 nhpylm/c_core/nhpylm.cpython-*.so
 nhpylm/c_core/nhpylm.html
 examples/.ipynb_checkpoints/
-examples/lattice_playground/
 nhpylm/__pycache__/
-
+examples/lattice_playground/wsj_hpylm/
+examples/lattice_playground/wsjcam0_hpylm/
+examples/lattice_playground/wcl-l-wsjcam0-p/*.fst
+examples/lattice_playground/wcl-l-wsjcam0-p/symbols.txt
+examples/lattice_playground/wcl-l-wsjcam0/*.fst
+examples/lattice_playground/wcl-l-wsjcam0/symbols.txt
+examples/lattice_playground/wcl-l-wsjcam0-d/

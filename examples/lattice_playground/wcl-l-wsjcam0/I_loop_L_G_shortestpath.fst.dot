@@ -1,0 +1,36 @@
+digraph FST {
+rankdir = LR;
+size = "22,17";
+label = "";
+center = 1;
+orientation = Portrait;
+ranksep = "0.4";
+nodesep = "0.25";
+13 [label = "13", shape = circle, style = bold, fontsize = 14]
+	13 -> 12 [label = "MANY:MANY/5.0369", fontsize = 14];
+0 [label = "0/2.9491", shape = doublecircle, style = solid, fontsize = 14]
+1 [label = "1", shape = circle, style = solid, fontsize = 14]
+	1 -> 0 [label = "_PHI:_PHI/0.42748", fontsize = 14];
+2 [label = "2", shape = circle, style = solid, fontsize = 14]
+	2 -> 1 [label = "ENGLISH:ENGLISH/11.573", fontsize = 14];
+3 [label = "3", shape = circle, style = solid, fontsize = 14]
+	3 -> 2 [label = "_PHI:_PHI/0.48023", fontsize = 14];
+4 [label = "4", shape = circle, style = solid, fontsize = 14]
+	4 -> 3 [label = "SPEAK:SPEAK/7.7788", fontsize = 14];
+5 [label = "5", shape = circle, style = solid, fontsize = 14]
+	5 -> 4 [label = "TO:TO/3.8532", fontsize = 14];
+6 [label = "6", shape = circle, style = solid, fontsize = 14]
+	6 -> 5 [label = "_PHI:_PHI/0.8475", fontsize = 14];
+7 [label = "7", shape = circle, style = solid, fontsize = 14]
+	7 -> 6 [label = "LEARNED:LEARNED/10.466", fontsize = 14];
+8 [label = "8", shape = circle, style = solid, fontsize = 14]
+	8 -> 7 [label = "_PHI:_PHI/1.2833", fontsize = 14];
+9 [label = "9", shape = circle, style = solid, fontsize = 14]
+	9 -> 8 [label = "EVEN:EVEN/6.9697", fontsize = 14];
+10 [label = "10", shape = circle, style = solid, fontsize = 14]
+	10 -> 9 [label = "_PHI:_PHI/1.4957", fontsize = 14];
+11 [label = "11", shape = circle, style = solid, fontsize = 14]
+	11 -> 10 [label = "THEM:THEM/4.7246", fontsize = 14];
+12 [label = "12", shape = circle, style = solid, fontsize = 14]
+	12 -> 11 [label = "OF:OF/1.5706", fontsize = 14];
+}
