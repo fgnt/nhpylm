@@ -1,6 +1,6 @@
 ## ----------------------------------------------------------------------------
 ##
-##   File: nhpylm.pyx
+##   File: kaldi.py
 ##   Copyright (c) <2013> <University of Paderborn>
 ##   Permission is hereby granted, free of charge, to any person
 ##   obtaining a copy of this software and associated documentation

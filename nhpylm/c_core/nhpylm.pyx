@@ -45,7 +45,6 @@
 from libcpp.string cimport string
 from libcpp.vector cimport vector
 from tqdm import tqdm
-from nt.transcription_handling.label_handler import LabelHandler
 
 cdef extern from "math.h":
     float log(float x) nogil
