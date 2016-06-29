@@ -1,0 +1,46 @@
+digraph FST {
+rankdir = LR;
+size = "22,17";
+label = "";
+center = 1;
+orientation = Portrait;
+ranksep = "0.4";
+nodesep = "0.25";
+18 [label = "18", shape = circle, style = bold, fontsize = 14]
+	18 -> 17 [label = "_M:_M/0.85681", fontsize = 14];
+0 [label = "0", shape = doublecircle, style = solid, fontsize = 14]
+1 [label = "1", shape = circle, style = solid, fontsize = 14]
+	1 -> 0 [label = "_EOC:_EOC/0.0063673", fontsize = 14];
+2 [label = "2", shape = circle, style = solid, fontsize = 14]
+	2 -> 1 [label = "_EOS:_EOS/1.2526", fontsize = 14];
+3 [label = "3", shape = circle, style = solid, fontsize = 14]
+	3 -> 2 [label = "_EOC:_EOC/0.003973", fontsize = 14];
+4 [label = "4", shape = circle, style = solid, fontsize = 14]
+	4 -> 3 [label = "_n:_n/0.011475", fontsize = 14];
+5 [label = "5", shape = circle, style = solid, fontsize = 14]
+	5 -> 4 [label = "_a:_a/0.01101", fontsize = 14];
+6 [label = "6", shape = circle, style = solid, fontsize = 14]
+	6 -> 5 [label = "_m:_m/0.70224", fontsize = 14];
+7 [label = "7", shape = circle, style = solid, fontsize = 14]
+	7 -> 6 [label = "_s:_s/0.41125", fontsize = 14];
+8 [label = "8", shape = circle, style = solid, fontsize = 14]
+	8 -> 7 [label = "_r:_r/0.0074028", fontsize = 14];
+9 [label = "9", shape = circle, style = solid, fontsize = 14]
+	9 -> 8 [label = "_a:_a/0.0040542", fontsize = 14];
+10 [label = "10", shape = circle, style = solid, fontsize = 14]
+	10 -> 9 [label = "_M:_M/0.85681", fontsize = 14];
+11 [label = "11", shape = circle, style = solid, fontsize = 14]
+	11 -> 10 [label = "_EOC:_EOC/0.0075986", fontsize = 14];
+12 [label = "12", shape = circle, style = solid, fontsize = 14]
+	12 -> 11 [label = "_n:_n/0.011952", fontsize = 14];
+13 [label = "13", shape = circle, style = solid, fontsize = 14]
+	13 -> 12 [label = "_a:_a/0.011468", fontsize = 14];
+14 [label = "14", shape = circle, style = solid, fontsize = 14]
+	14 -> 13 [label = "_i:_i/0.013639", fontsize = 14];
+15 [label = "15", shape = circle, style = solid, fontsize = 14]
+	15 -> 14 [label = "_t:_t/1.1057", fontsize = 14];
+16 [label = "16", shape = circle, style = solid, fontsize = 14]
+	16 -> 15 [label = "_r:_r/0.0074028", fontsize = 14];
+17 [label = "17", shape = circle, style = solid, fontsize = 14]
+	17 -> 16 [label = "_a:_a/0.0040542", fontsize = 14];
+}

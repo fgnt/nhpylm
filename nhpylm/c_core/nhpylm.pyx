@@ -65,9 +65,8 @@ cdef class NHPYLM_wrapper:
     cdef dict _sym_to_int
     cdef dict _int_to_sym
     cdef int _sentence_boundary_id
-    cdef bool add_eos
     def __cinit__(self, symbols, word_model_order=2, character_model_order=8,
-                  double word_base_probability=0.):
+                  double word_base_probability=0., sentence_boundary_marker=['EOS']):
 
         symbols = special_symbols + symbols
         cdef int i
@@ -83,7 +82,11 @@ cdef class NHPYLM_wrapper:
         self._lm = new NHPYLM(character_model_order, word_model_order,
                               sym_vec, len(special_symbols),
                               word_base_probability)
-        self._sentence_boundary_id = self._add_word(['EOS'])
+
+        if isinstance(sentence_boundary_marker, list):
+            self._sentence_boundary_id = self._add_word(sentence_boundary_marker)
+        else:
+            self._sentence_boundary_id = self._sym_to_int[sentence_boundary_marker]
 
     cdef int _add_word(self, word):
         cdef vector[int] word_vec = [self._sym_to_int[c] for c in word]
@@ -305,17 +308,24 @@ cdef class NHPYLM_wrapper:
             id_sequence = id_sequence[:-1]
         return self._lm.WordSequenceLoglikelihood(id_sequence)
 
-    cpdef get_transitions_for_id(self, id):
+    cpdef get_transitions_for_id(self, id, return_to_start=False):
         """ Calculates the transitions for a given id
 
         :param id: Context for the transitions
         """
 
         cdef vector[bool] empty_active_words = vector[bool]()
-        return self._lm.GetTransitions(id, self._sentence_boundary_id,
-                                       empty_active_words)
+        if not return_to_start:
+            return self._lm.GetTransitions(id, self._sentence_boundary_id,
+                                           empty_active_words)
+        else:
+            return self._lm.GetTransitions(id, self._sentence_boundary_id,
+                                           empty_active_words,
+                                           self.start_context_id)
 
-    cpdef to_fst_text_format(self, sow=None, eow=None, eos_word=None):
+
+    cpdef to_fst_text_format(self, sow=None, eow=None, eos_word=None,
+                             return_to_start=False):
         cdef vector[string] fst_lines = vector[string]()
         cdef vector[bool] visited_contexts = vector[bool](self.final_context_id, 0)
         next_context = list()
@@ -333,7 +343,8 @@ cdef class NHPYLM_wrapper:
             cur_context = next_context.pop()
             if not visited_contexts[cur_context]:
                 visited_contexts[cur_context] = True
-                transitions = self.get_transitions_for_id(cur_context)
+                transitions = self.get_transitions_for_id(cur_context,
+                                                          return_to_start)
                 for i in range(transitions.Words.size()):
                     dest = transitions.NextContextIds[i]
                     label = transitions.Words[i]
@@ -354,7 +365,28 @@ cdef class NHPYLM_wrapper:
                     if not visited_contexts[dest]:
                         next_context.append(dest)
                 progress.update()
-        fst_lines.push_back('{}'.format(self.final_context_id).encode())
-        arc_list.append((self.final_context_id,))
+#        if return_to_start and final_sequence is not None:
+#            for context_id, label in enumerate(final_sequence):
+#                if context_id == 0:
+#                    cur_context = self.start_context_id
+#                else:
+#                    cur_context = context_id + self.final_context_id
+#                if context_id == (len(final_sequence) - 1):
+#                    dest = self.final_context_id
+#                else:
+#                    dest = context_id + 1 + self.final_context_id
+#                fst_lines.push_back(
+#                        '{} {} {} {} {}'.format(
+#                                cur_context,
+#                                dest,
+#                                label, label,
+#                                weight).encode())
+#                arc_list.append((cur_context, dest, label, label, weight))
+        if not return_to_start:
+            fst_lines.push_back('{}'.format(self.final_context_id).encode())
+            arc_list.append((self.final_context_id,))
+        else:
+            fst_lines.push_back('{}'.format(self.start_context_id).encode())
+            arc_list.append((self.start_context_id,))
         progress.close()
         return fst_lines, arc_list

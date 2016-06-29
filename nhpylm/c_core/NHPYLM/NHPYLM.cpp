@@ -45,7 +45,13 @@
 #include <iostream>
 #include "NHPYLM.hpp"
 
-NHPYLM::NHPYLM(unsigned int CHPYLMOrder_, unsigned int WHPYLMOrder_, const std::vector<std::string> &Symbols_, int CharactersBegin_, const double WordBaseProbability_) :
+NHPYLM::NHPYLM(
+  unsigned int CHPYLMOrder_,
+  unsigned int WHPYLMOrder_,
+  const std::vector<std::string> &Symbols_,
+  int CharactersBegin_,
+  const double WordBaseProbability_
+) :
   Dictionary(CHPYLMOrder_ - 1, Symbols_),
   CHPYLM(CHPYLMOrder_),
   WHPYLM(WHPYLMOrder_),
@@ -54,7 +60,10 @@ NHPYLM::NHPYLM(unsigned int CHPYLMOrder_, unsigned int WHPYLMOrder_, const std::
   CharactersBegin(CharactersBegin_),
   CharactersEnd(Symbols_.size()),
   NumCharacters(CharactersEnd - CharactersBegin),
-  Parameters(CHPYLM.GetHPYLMParameters().Discount, CHPYLM.GetHPYLMParameters().Concentration, WHPYLM.GetHPYLMParameters().Discount, WHPYLM.GetHPYLMParameters().Concentration),
+  Parameters(CHPYLM.GetHPYLMParameters().Discount,
+             CHPYLM.GetHPYLMParameters().Concentration,
+             WHPYLM.GetHPYLMParameters().Discount,
+             WHPYLM.GetHPYLMParameters().Concentration),
   WordBaseProbability(WordBaseProbability_),
   CHPYLMBaseProbabilities(),
   WHPYLMBaseProbabilities(),
@@ -65,7 +74,8 @@ NHPYLM::NHPYLM(unsigned int CHPYLMOrder_, unsigned int WHPYLMOrder_, const std::
   WHPYLMBaseProbabilities.set_deleted_key(DELETED);
   WHPYLMBaseProbabilities.set_empty_key(EMPTY);
 
-  /* initialize base probabilities for character hierarchical pitman yor language model */
+  /* initialize base probabilities for character
+   * hierarchical pitman yor language model */
   CHPYLMBaseProbabilities[EOW] = 1.0 / (NumCharacters + 2);
   CHPYLMBaseProbabilities[EOS] = 1.0 / (NumCharacters + 2);
   for (int CharacterId = CharactersBegin; CharacterId < CharactersEnd; CharacterId++) {
@@ -88,15 +98,18 @@ void NHPYLM::AddWordToLm(const const_witerator &Word)
 //   std::cout << " to LM " << std::endl;
 
   /* get base probability for character sequence represting word */
-  const std::vector<int> &CharacterSequence(GetWordVector(*Word));
+  const std::vector<int> *CharacterSequence = nullptr;
+  if (NumCharacters > 0) {
+    CharacterSequence = &GetWordVector(*Word);
+  }
 //  for(const_citerator it = CharacterSequence.begin() + CHPYLMOrder - 1; it != CharacterSequence.end(); ++it) {
 //     std::cout << *it << "|";
 //   }
   double BaseProbability;
-  if (WordBaseProbability == 0.0) {
-     BaseProbability = exp(CHPYLM.WordSequenceLoglikelihood(CharacterSequence, CHPYLMBaseProbabilities));
+  if ((WordBaseProbability == 0.0) && (NumCharacters > 0) && (CHPYLMOrder > 0)) {
+     BaseProbability = exp(CHPYLM.WordSequenceLoglikelihood(*CharacterSequence, CHPYLMBaseProbabilities));
    } else {
-    BaseProbability = WordBaseProbability;
+     BaseProbability = WordBaseProbability;
    }
 
   /* debug */
@@ -109,7 +122,9 @@ void NHPYLM::AddWordToLm(const const_witerator &Word)
 
   /* add the word to the nested hierarchical pitman yor language model */
   if (WHPYLM.AddWord(Word, BaseProbability)) {
-    AddCharacterSequenceToCHPYLM(CharacterSequence);
+    if ((NumCharacters > 0) && (CHPYLMOrder > 0)) {
+      AddCharacterSequenceToCHPYLM(*CharacterSequence);
+    }
   }
 }
 
@@ -167,7 +182,9 @@ bool NHPYLM::RemoveWordFromLm(const const_witerator &Word)
   WordRemoveStatus Removed = WHPYLM.RemoveWord(Word);
   if (Removed != NONEREMOVED) {
 //     std::cout << "Removed Word: " << *Word << std::endl;
-    RemoveCharacterSequenceFromCHPYLM(GetWordVector(*Word));
+    if ((NumCharacters > 0) && (CHPYLMOrder > 0)) {
+      RemoveCharacterSequenceFromCHPYLM(GetWordVector(*Word));
+    }
     if (Removed != TABLE) {
       return true;
     }
@@ -199,7 +216,7 @@ double NHPYLM::WordProbability(const const_witerator &Word) const
   /* get base probability for character sequence represting word and calculate word probability */
 
   double BaseProbability;
-  if (WordBaseProbability == 0.0) {
+  if ((WordBaseProbability == 0.0) && (NumCharacters > 0) && (CHPYLMOrder > 0)) {
       google::dense_hash_map<int, double>::const_iterator it = WHPYLMBaseProbabilities.find(*Word);
       if (it == WHPYLMBaseProbabilities.end()) {
         it = WHPYLMBaseProbabilities.insert(std::make_pair(*Word, exp(CHPYLM.WordSequenceLoglikelihood(GetWordVector(*Word), CHPYLMBaseProbabilities)))).first;
@@ -217,27 +234,23 @@ double NHPYLM::WordProbability(const const_witerator &Word) const
 std::vector<double> NHPYLM::WordVectorProbability(const std::vector< int > &ContextSequence, const std::vector< int > &Words) const
 {
   /* get base probability for character sequences represting words and calculate word probabilities */
-  bool AddFbProb = true;
-  if ((AddFbProb == false) && (ContextSequence.size() == 0)) {
-    AddFbProb = true;
-  }
   std::vector<double> BaseProbabilites;
   BaseProbabilites.reserve(Words.size());
   mtx.lock();
   for (std::vector<int>::const_iterator Word = Words.begin(); Word != Words.end(); ++Word) {
     double BaseProbability;
-    if (AddFbProb) {
-      google::dense_hash_map<int, double>::const_iterator it = WHPYLMBaseProbabilities.find(*Word);
-      if (it == WHPYLMBaseProbabilities.end()) {
-        if (*Word != PHI) {
-//    std::cout << *Word << ":" << dict.get_word_vector(*Word).size() << std::endl;
+    if (*Word != PHI) {
+      if ((WordBaseProbability == 0.0) && (NumCharacters > 0) && (CHPYLMOrder > 0)) {
+        google::dense_hash_map<int, double>::const_iterator it = WHPYLMBaseProbabilities.find(*Word);
+        if (it == WHPYLMBaseProbabilities.end()) {
+  //    std::cout << *Word << ":" << dict.get_word_vector(*Word).size() << std::endl;
           BaseProbability = exp(CHPYLM.WordSequenceLoglikelihood(GetWordVector(*Word), CHPYLMBaseProbabilities));
           WHPYLMBaseProbabilities.insert(std::make_pair(*Word, BaseProbability));
         } else {
-          BaseProbability = 0;
+          BaseProbability = it->second;
         }
       } else {
-        BaseProbability = it->second;
+        BaseProbability = WordBaseProbability;
       }
       BaseProbabilites.push_back(BaseProbability);
     } else {
@@ -255,9 +268,13 @@ double NHPYLM::WordSequenceLoglikelihood(const std::vector< int > &WordSequence)
 
   /* calculate base probabilities */
   for (const_witerator Word = WordSequence.begin() + WHPYLMOrder - 1; Word != WordSequence.end(); ++Word) {
-    google::dense_hash_map<int, double>::const_iterator it = WHPYLMBaseProbabilities.find(*Word);
-    if (it == WHPYLMBaseProbabilities.end()) {
-      WHPYLMBaseProbabilities.insert(std::make_pair(*Word, exp(CHPYLM.WordSequenceLoglikelihood(GetWordVector(*Word), CHPYLMBaseProbabilities))));
+    if ((WordBaseProbability == 0.0) && (NumCharacters > 0) && (CHPYLMOrder > 0)) {
+      google::dense_hash_map<int, double>::const_iterator it = WHPYLMBaseProbabilities.find(*Word);
+      if (it == WHPYLMBaseProbabilities.end()) {
+        WHPYLMBaseProbabilities.insert(std::make_pair(*Word, exp(CHPYLM.WordSequenceLoglikelihood(GetWordVector(*Word), CHPYLMBaseProbabilities))));
+      }
+    } else {
+      WHPYLMBaseProbabilities.insert(std::make_pair(*Word, WordBaseProbability));
     }
   }
 
@@ -267,9 +284,11 @@ double NHPYLM::WordSequenceLoglikelihood(const std::vector< int > &WordSequence)
 
 void NHPYLM::ResampleHyperParameters()
 {
-  CHPYLM.ResampleHyperParameters();
+  if ((WordBaseProbability == 0.0) && (NumCharacters > 0) && (CHPYLMOrder > 0)) {
+    CHPYLM.ResampleHyperParameters();
+    WHPYLMBaseProbabilities.clear();
+  }
   WHPYLM.ResampleHyperParameters();
-  WHPYLMBaseProbabilities.clear();
 }
 
 const NHPYLMParameters &NHPYLM::GetNHPYLMParameters() const
@@ -279,18 +298,27 @@ const NHPYLMParameters &NHPYLM::GetNHPYLMParameters() const
 
 int NHPYLM::GetContextId(const std::vector< int > &ContextSequence) const
 {
-  return WHPYLM.GetContextId(ContextSequence) + CHPYLM.GetNextUnusedContextId();
+  return WHPYLM.GetContextId(ContextSequence) + GetRootContextId();
 }
 
 int NHPYLM::GetRootContextId() const
 {
-    return CHPYLM.GetNextUnusedContextId();
+  if ((WordBaseProbability == 0.0) && (NumCharacters > 0) && (CHPYLMOrder > 0)) {
+      return CHPYLM.GetNextUnusedContextId();
+  } else {
+    return 0;
+  }
 }
 
-ContextToContextTransitions NHPYLM::GetTransitions(int ContextId, int SentEndWordId, const std::vector<bool> &ActiveWords) const
+ContextToContextTransitions NHPYLM::GetTransitions(
+  int ContextId,
+  int SentEndWordId,
+  const std::vector<bool> &ActiveWords,
+  int ReturnToContextId
+) const
 {
-  int WordContextIdOffset = CHPYLM.GetNextUnusedContextId();
-  int NextUnusedWordContextId = WHPYLM.GetNextUnusedContextId() + WordContextIdOffset;
+  int WordContextIdOffset = GetRootContextId();
+  int FinalContextId = GetFinalContextId();
 //   PrintDebugHeader << ": Word context id offset: " << WordContextIdOffset << ", Next unused word context id: " << NextUnusedWordContextId << std::endl;
 
 //   PrintDebugHeader << ": " << ContextId;
@@ -329,38 +357,42 @@ ContextToContextTransitions NHPYLM::GetTransitions(int ContextId, int SentEndWor
       }
     }
 
-    const std::vector<int> &ContextSequence = CHPYLM.GetContextSequence(ContextId);
-    bool AddFbProb = true;
-    if ((AddFbProb == false) && (ContextSequence.size() == 0)) {
-      AddFbProb = true;
-    }
     Transitions.Probabilities.reserve(Transitions.Words.size());
     for (std::vector<int>::iterator Word = Transitions.Words.begin(); Word != Transitions.Words.end(); ++Word) {
-      if ((*Word != PHI) && AddFbProb) {
+      if (*Word != PHI) {
         Transitions.Probabilities.push_back(CHPYLMBaseProbabilities.find(*Word)->second);
       } else {
         Transitions.Probabilities.push_back(0);
       }
     }
     CHPYLM.WordVectorProbability(CHPYLM.GetContextSequence(ContextId), Transitions.Words, &Transitions.Probabilities);
-  } else if (ContextId < NextUnusedWordContextId) {
+  } else if (ContextId < FinalContextId) {
 //     std::cout << " (word id)" << std::endl;
     Transitions = WHPYLM.GetTransitions(ContextId - WordContextIdOffset, SentEndWordId, ActiveWords);
 
     for (iiterator NextContextId = Transitions.NextContextIds.begin(); NextContextId != Transitions.NextContextIds.end(); ++NextContextId) {
       *NextContextId += WordContextIdOffset;
+      if ((ReturnToContextId > -1) && (*NextContextId == FinalContextId)) {
+        *NextContextId = ReturnToContextId;
+      }
     }
 
     if (ContextId == WordContextIdOffset) {
-      /* add fallback to character model */
-      Transitions.Words.push_back(PHI);
-      std::vector<int> CharacterStartContextSequence(CHPYLMOrder - 1, EOW);
-      Transitions.NextContextIds.push_back(CHPYLM.GetContextId(CharacterStartContextSequence));
+      if ((WordBaseProbability == 0.0) && (NumCharacters > 0) && (CHPYLMOrder > 0)) {
+        /* add fallback to character model */
+        Transitions.Words.push_back(PHI);
+        std::vector<int> CharacterStartContextSequence(CHPYLMOrder - 1, EOW);
+        Transitions.NextContextIds.push_back(CHPYLM.GetContextId(CharacterStartContextSequence));
+      }
 
       /* add end of sentence in case it is missing (for example an empty language model) */
       if (!Transitions.HasTransitionToSentEnd) {
         Transitions.Words.push_back(SentEndWordId);
-        Transitions.NextContextIds.push_back(NextUnusedWordContextId);
+        if (ReturnToContextId < 0) {
+          Transitions.NextContextIds.push_back(FinalContextId);
+        } else {
+          Transitions.NextContextIds.push_back(ReturnToContextId);
+        }
       }
     }
 //     std::cout << "WHPYLMContextId: " << ContextId - WordContextIdOffset << std::endl;
@@ -373,7 +405,7 @@ ContextToContextTransitions NHPYLM::GetTransitions(int ContextId, int SentEndWor
 
 int NHPYLM::GetFinalContextId() const
 {
-  return WHPYLM.GetNextUnusedContextId() + CHPYLM.GetNextUnusedContextId();
+  return WHPYLM.GetNextUnusedContextId() + GetRootContextId();
 }
 
 int NHPYLM::GetCHPYLMOrder() const

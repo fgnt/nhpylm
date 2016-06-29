@@ -98,6 +98,11 @@ cdef extern from "NHPYLM/NHPYLM.hpp":
         ContextToContextTransitions GetTransitions(
                 int ContextId,
                 int SentEndWordId,
+                const vector[bool] & ActiveWords,
+                int ReturnToContextId) const
+        ContextToContextTransitions GetTransitions(
+                int ContextId,
+                int SentEndWordId,
                 const vector[bool] & ActiveWords) const
         int GetFinalContextId() const
         int GetRootContextId() const
