@@ -75,3 +75,4 @@ Decoding of test sentences with both, PHI composition and EPS fallback: examples
 Create (L o G) for WSJCAM0 training data: examples/WSJCAM0_HPYLM.ipynb
 Create (L o G) for WSJ LM training data: examples/WSJ_HPYLM.ipynb
 
+Example using PHI compositions and character only language model: examples/Char-LM-Example-Phi.ipynb
