@@ -44,7 +44,7 @@
 
 __author__ = 'walter'
 
-import nt.utils.json_utils as ju
+import .json_utils as ju
 import os
 
 def identity(x):
