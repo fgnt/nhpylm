@@ -60,6 +60,7 @@
 #ifndef _RESTAURANT_HPP_
 #define _RESTAURANT_HPP_
 
+#include <random>
 #include "definitions.hpp"
 
 /*

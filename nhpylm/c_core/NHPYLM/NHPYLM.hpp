@@ -166,7 +166,8 @@ public:
     int ContextId,
     int SentEndWordId,
     const std::vector< bool > &ActiveWords,
-    int ReturnToContextId = -1
+    int ReturnToContextId = -1,
+    const std::vector<int> &AvailableWords = std::vector<int>()
   ) const;
 
   // get the final state (sentence end)
@@ -191,7 +192,7 @@ public:
   // generate character or word sequences from the language models
   std::vector<std::vector<int> > Generate(
     std::string Mode,
-    int NumWorsdOrCharacters,
+    int NumWordsOrCharacters,
     int SentEndWordId,
     std::vector<double> *GeneratedWordLengthDistribution_
   ) const;
